@@ -9,7 +9,7 @@ class $modify(MyFLAlertLayer, FLAlertLayer) {
 		if (!pl->getParent()) return FLAlertLayer::show();
 		if (!pl->getParent()->getChildByType<PauseLayer>(0)) return FLAlertLayer::show();
 		if (!Mod::get()->getSettingValue<bool>("enabled")) return FLAlertLayer::show();
-		if (!pl->m_isPaused) return FLAlertLayer::show();
+		if (pl->m_isPaused) return FLAlertLayer::show();
 		this->removeMeAndCleanup();
 	}
 };

@@ -3,13 +3,12 @@
 using namespace geode::prelude;
 
 class $modify(MyFLAlertLayer, FLAlertLayer) {
+	static void onModify(auto& self) {
+		(void) self.setHookPriority("FLAlertLayer::show", -3999);
+	}
 	void show() {
 		const auto pl = PlayLayer::get();
-		if (!pl) return FLAlertLayer::show();
-		if (!pl->getParent()) return FLAlertLayer::show();
-		if (!pl->getParent()->getChildByType<PauseLayer>(0)) return FLAlertLayer::show();
-		if (!Mod::get()->getSettingValue<bool>("enabled")) return FLAlertLayer::show();
-		if (pl->m_isPaused) return FLAlertLayer::show();
-		this->removeMeAndCleanup();
+		if (pl && pl->getParent() && pl->getParent()->getChildByType<PauseLayer>(0) && Mod::get()->getSettingValue<bool>("enabled") && !pl->m_isPaused) return this->removeMeAndCleanup();
+		FLAlertLayer::show();
 	}
 };

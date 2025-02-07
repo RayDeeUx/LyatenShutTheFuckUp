@@ -1,0 +1,21 @@
+{
+	"geode": "4.0.1",
+	"gd": {
+		"win": "2.2074",
+		"mac": "2.2074",
+		"android": "2.2074"
+	},
+	"id": "raydeeux.lyatenshutthefuckup",
+	"name": "LyatenShutTheFuckUp",
+	"version": "v1.0.0",
+	"developer": "RayDeeUx",
+	"description": "Lyaten, shut the fuck up.",
+	"settings": {
+		"enabled": {
+			"name": "Enabled",
+			"description": "Toggles the mod.",
+			"type": "bool",
+			"default": true
+		}
+	}
+}
